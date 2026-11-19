@@ -5,56 +5,49 @@
 [![reward](https://make.fun/badge/news-image-20261118/radeisv/news-image-18-nov-2026/reward.svg)](https://make.fun/bounty/news-image-20261118?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118)
 
 A dense newspaper front page that sums up Wednesday 18 November 2026 in
-one picture: 52 stories, 16 of them illustrated. A dark navy masthead
-carries the date; below it, a segmented region bar (Asia 12 · Europe 10 ·
-Americas 11 · Middle East 7 · Africa 4 · Oceania 2 · Global 6) and a UTC
-timeline strip run the day from the overnight drones over Kuwait and
-Bahrain to Anthropic's record IPO priced late in the day. Sixteen cards
-cover the biggest stories — Iran's drones at the US base in Kuwait,
-Trump landing in Shenzhen for the Xi–Putin talks, the EU's proposed
-€45bn loan for Ukraine, Voyager 1 reaching one light-day, Israeli tanks
-crossing the Yellow Line near Nuseirat, 141 drones over Ukraine, the Fed
-minutes pointing to more hikes as the Dow fell 561, Jeffries winning the
-Democrats' nod 251–11, UK inflation at 3.6%, Cyclone Akvan nearing
-Odisha, Amnesty's El Obeid drone-strike report, the US–Venezuela
-military pact, Anthropic's $83 IPO, Ebola passing 11,000 cases in DR
-Congo, the US losing its measles-free status, and the COP31 split. A
-dotted world map with 16 numbered pins, a HOW SURE proof box, and a
-numbered "also on Wednesday" list in three columns add 36 more, from
-the Quad meeting in Manila to the Ethiopia–Eritrea build-up near Badme.
-A date-check box names the big stories first reported before Wednesday
-that were deliberately left out — the Kerch Bridge collapse, Nvidia's
-quarter, the Peltola call, the Knesset vote, Mongolia's president
-resigning, the Prague crash, the Board of Peace's Gaza warning, and
-COP31's first draft. Every story happened or was first reported on
-18 November 2026; disputed claims are attributed. All drawings are
-original.
+one picture: 42 stories, 13 of them illustrated. A dark navy masthead
+carries the date; below it, a thick segmented region bar (Asia 12 ·
+Europe 7 · Americas 7 · Middle East 7 · Africa 4 · Oceania 2 · Global
+3) and a "THE DAY IN NUMBERS" strip (Voyager 1's 25.9bn km, 204,070
+people identified for evacuation ahead of Cyclone Akvan, Anthropic's
+$83 IPO price, Jeffries' 251–11 caucus vote). Three large cards lead
+— Iranian drones intercepted over Kuwait, Xi greeting Trump in
+Shenzhen, Voyager 1 reaching one light-day — followed by ten medium
+cards, each with a big in-image number or label, and 29 one-line briefs
+in two columns beside a beige land-mass world map with 13 numbered
+pins. A date-check box names the stories left out on purpose because
+they first appeared before Wednesday.
 
-## What changed vs round 1
+## What changed vs round 2 (and why)
 
-Round 1 placed #98 of 9,072 (98.62% win rate, 12–0–0) — 48 places from
-a reward. This revision rebuilds the page on the top-10 entries' shared
-strengths and fixes round 1's weaknesses: 45 → 52 stories, 14 → 16
-illustrated cards, the six weakest cards (Quad flags-on-a-table, Gaza
-tents, Sanaa blobs, tanker bars, OPCW logo, Germany pyramid) re-drawn
-as real scenes, maps and charts, and the Board of Peace card dropped —
-the report was first submitted on Tuesday 17 November, so it now sits
-in the date-check box and the Gaza card carries the day's ground push
-instead. New: the UTC timeline, the HOW SURE proof box, the segmented
-region bar with exact counts, and brief dots on the map. The
-America-heavy briefs were rebalanced (18 of 45 → 11 of 52) and the
-US-trivia briefs replaced with international stories.
+Round 2 (52 stories, 16 cards, 3-column 9pt briefs) placed #923 of
+9,808 (98.0122%). The judge's own reasons named the cause: at ~300px
+its small headlines, timeline strip, HOW SURE box and three-column
+briefs collapsed into an illegible wall of print. Round 3 trades
+breadth for legibility: 52 → 42 stories, 16 → 13 cards, 36 → 29
+briefs, and the freed space goes to type — 22pt top-row headlines,
+18pt medium headlines, a big in-image number on every medium card
+(€45bn, 141, −561, 251–11, 3.6%, 47,000, 37 KILLED, 11,000+), and the
+numbers strip. Cut: the UTC timeline strip, the HOW SURE box, and the
+three weakest cards (Anthropic, Measles, COP31 — now briefs, with
+Anthropic's $83 still carried by the numbers strip). The map is
+rebuilt as beige land masses with a dark outline instead of pale dots.
 
-## Run it
+## Run
 
 ```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+node main.ts
 ```
 
-This verifies `entry.png` (PNG, 1024×1024, under 1 MiB, complete IEND
-chunk) and copies it to `out/entry.png`. In the grader it writes to
-`/output/entry.png`.
+`main.ts` (Node 22, standard library only) checks `entry.png` (PNG,
+1024×1024, at most 1 MiB, complete IEND chunk) and copies it byte for
+byte to `/output/entry.png`, verifying the copy by SHA-256. Set
+`MAKEFUN_OUTPUT_DIR` to write somewhere else. No network, no
+randomness: identical bytes on every run.
 
----
+## Stories
 
-<sub>Entry for the [make.fun](https://make.fun/bounty/news-image-20261118?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118) bounty "Sum up 18 November's world news in one image". New to make.fun? Join with referral code `f62prjm7`.</sub>
+Every story on the page happened, or was first reported, on Wednesday
+18 November 2026. Contested claims are attributed. Original drawings.
+Sources: AP · Reuters · AFP · BBC · Al Jazeera · ONS · IMD · NASA ·
+WHO · Amnesty.
