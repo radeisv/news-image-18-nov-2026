@@ -50,7 +50,14 @@ const copied = statSync(dst).size;
 if (copied !== bytes.length) {
   throw new Error(`copy mismatch: wrote ${copied} bytes, expected ${bytes.length}`);
 }
+// Revision: verify the copy itself, not just its size — re-read the
+// destination and compare its sha256 with the source's, so a partial
+// or corrupted write fails loudly instead of reaching the judge.
 const sha = createHash('sha256').update(bytes).digest('hex');
+const copiedSha = createHash('sha256').update(readFileSync(dst)).digest('hex');
+if (copiedSha !== sha) {
+  throw new Error(`copy hash mismatch: ${copiedSha.slice(0, 12)}... != ${sha.slice(0, 12)}...`);
+}
 console.log(
   `news-image-20261118: front page, 45 stories, ${width}x${height} PNG, ` +
   `${bytes.length} bytes, sha256 ${sha.slice(0, 12)}... -> ${dst}`,
